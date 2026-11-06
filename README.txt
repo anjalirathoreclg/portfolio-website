@@ -1,2 +1,2 @@
-Optional: drop real club logos here as tedx.png, csi.png, swe.png, avatri.png, gsa.png.
-The Clubs flashcards show them automatically; without them a text wordmark is shown.
+Anjali Rathore, a Crime-Board Inspired Portfolio
+My portfolio is a detective’s crime board. Creative feature: my caricature’s eyes follow your cursor, and five clue cards open case files: About Me, Superpowers (animated skill gauges), Projects, Achievements (certificate folders) and Clubs, plus a downloadable resume. Built with HTML, CSS and JavaScript, pushed to GitHub and deployed with AWS Amplify Hosting, which redeploys automatically on every commit. I learned Git-based CI/CD and responsive design. Challenges: making cursor tracking smooth, keeping popups from blocking navigation, and keeping the layout readable on mobile.
