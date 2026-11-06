@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anjali Rathore | Ordinary was never the plan</title>
+<meta name="description" content="Portfolio case file: about, skills, projects and achievements.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Archivo:wdth,wght@62,800&display=swap">
+<style>
+:root{--paper:#f4ecd8;--ink:#1d1a16;--red:#b3261e;--tape:#f2c230;--fw:clamp(8px,1.2vw,18px)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:#1b1410;color:var(--paper);font-family:"Special Elite","Courier New",monospace;line-height:1.55}
+a{color:inherit}
+.hero{position:relative;min-height:100svh;overflow:hidden;isolation:isolate;background:#a87b4c}
+.cork{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+/* lighting over the whole board: lamp from above, dark corners */
+.hero::before{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:radial-gradient(ellipse at 50% -10%,rgba(255,244,214,.28),transparent 55%),radial-gradient(ellipse at 50% 50%,transparent 50%,rgba(20,8,0,.5))}
+/* wooden frame */
+.hero::after{content:"";position:absolute;inset:0;z-index:8;pointer-events:none;border:var(--fw) solid #5a3a1e;border-image:repeating-linear-gradient(90deg,#74492a 0 5px,#5a3a1e 5px 12px,#6b4426 12px 15px,#4b2f18 15px 21px) 20;box-shadow:inset 0 0 22px 6px rgba(0,0,0,.55),inset 0 0 0 1px rgba(255,255,255,.12)}
+#clutter,#rand{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+#rand{pointer-events:none}
+#rand path{fill:none;vector-effect:non-scaling-stroke;stroke-linecap:round}
+#rand .th{stroke:var(--red);stroke-width:1.8}
+#rand .sh{stroke:rgba(0,0,0,.35);stroke-width:3}
+svg#strings{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+svg#strings path{fill:none;stroke-linecap:round}
+svg#strings .th{stroke:var(--red);stroke-width:3.2}
+svg#strings .sh{stroke:rgba(0,0,0,.38);stroke-width:5}
+.bit{position:absolute;color:var(--ink);transform:rotate(var(--r));box-shadow:0 1px 1px rgba(0,0,0,.35),1px 3px 4px rgba(0,0,0,.3),3px 9px 12px rgba(0,0,0,.28)}
+.bit::after{content:"";position:absolute;right:0;bottom:0;width:18%;height:18%;background:linear-gradient(135deg,rgba(0,0,0,.12) 50%,transparent 50%);pointer-events:none}
+.bit i.p,.clue .pin{position:absolute;top:-7px;left:50%;width:15px;height:15px;margin-left:-7px;border-radius:50%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.9) 0 8%,var(--pc,#c8312b) 32%,rgba(0,0,0,.65) 130%);box-shadow:3px 4px 4px rgba(0,0,0,.5)}
+.sticky{width:clamp(80px,9.5vw,140px);padding:.7rem .5rem;font-size:clamp(.6rem,.85vw,.8rem);line-height:1.25;background-image:linear-gradient(160deg,rgba(255,255,255,.35),rgba(0,0,0,.08))}
+.polaroid{width:clamp(70px,8.5vw,125px);background:linear-gradient(160deg,#fffefa,#ece6d6);padding:.35rem .35rem .25rem;text-align:center;font-size:clamp(.5rem,.7vw,.68rem)}
+.polaroid svg{display:block;width:100%;background:radial-gradient(circle at 40% 30%,#44506a,#1b2230);box-shadow:inset 0 0 8px rgba(0,0,0,.7)}
+.paper{width:clamp(90px,11vw,160px);background:linear-gradient(150deg,#fffdf4,#eee5cd);padding:.5rem;font-size:clamp(.5rem,.72vw,.68rem);line-height:1.3;white-space:pre}
+.num{width:clamp(22px,2.2vw,32px);height:clamp(22px,2.2vw,32px);border-radius:50%;background:#fffdf4;display:grid;place-items:center;font-size:clamp(.6rem,.9vw,.85rem);border:2px solid var(--ink)}
+.tp::before{content:"";position:absolute;top:-8px;left:30%;width:42%;height:15px;background:rgba(236,224,160,.72);box-shadow:0 1px 2px rgba(0,0,0,.2);transform:rotate(-3deg)}
+.label{position:absolute;z-index:6;top:3.4vh;left:50%;translate:-50% 0;background:linear-gradient(150deg,#fbf5e4,#e9dfc4);color:var(--ink);padding:.5rem 1.2rem;text-align:center;box-shadow:0 2px 2px rgba(0,0,0,.3),3px 10px 16px rgba(0,0,0,.4);rotate:-1deg;max-width:90vw}
+.label::before{content:"";position:absolute;top:-9px;left:50%;width:90px;margin-left:-45px;height:16px;background:rgba(236,224,160,.75);box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.label small{display:block;letter-spacing:.2em;font-size:clamp(.6rem,.9vw,.8rem);color:var(--red)}
+.label h1{margin:0;font-size:clamp(1.6rem,4.6vw,3.8rem);line-height:1.05;text-transform:uppercase;white-space:nowrap}
+.label nav{display:flex;gap:.6rem;justify-content:center;margin-top:.3rem;font-size:clamp(.65rem,.9vw,.85rem);text-transform:uppercase;flex-wrap:wrap}
+.label nav a{text-decoration:none;border-bottom:2px solid var(--red)}
+.clue{position:absolute;z-index:4;width:clamp(140px,17vw,250px);background:linear-gradient(150deg,#fbf5e4,#e9dfc4);color:var(--ink);padding:1rem .9rem .8rem;text-decoration:none;box-shadow:0 1px 2px rgba(0,0,0,.35),2px 5px 7px rgba(0,0,0,.3),5px 14px 18px rgba(0,0,0,.3);transition:transform .2s}
+.clue:hover,.clue:focus-visible{transform:rotate(0) scale(1.06)!important}
+.clue small{display:block;font-size:.7rem;letter-spacing:.08em;color:#6a6258}
+.clue b{display:block;font-size:clamp(.95rem,1.5vw,1.3rem);line-height:1.2;margin:.2rem 0}
+.clue span.t{font-size:.8rem}
+.c1{left:4%;top:21%;transform:rotate(-4deg)}.c2{left:8%;top:45%;transform:rotate(3deg)}.c3{left:4%;top:69%;transform:rotate(-3deg)}
+.c4{right:5%;top:28%;transform:rotate(4deg)}.c5{right:8%;top:57%;transform:rotate(-3deg)}
+.char{position:absolute;z-index:3;left:50%;bottom:calc(2.6rem + var(--fw));translate:-50% 0;height:min(62vh,46vw);aspect-ratio:4/5;pointer-events:none}
+.char svg{width:100%;height:100%;display:block;overflow:visible;filter:drop-shadow(0 .8vw .9vw rgba(0,0,0,.5))}
+.tag{position:absolute;z-index:6;left:var(--fw);right:var(--fw);bottom:var(--fw);background:linear-gradient(#f6cc3c,#e0b020);color:var(--ink);text-align:center;padding:.5rem 1rem;font-size:clamp(.9rem,1.8vw,1.5rem);text-transform:uppercase;letter-spacing:.12em;border-top:3px solid var(--ink);box-shadow:0 -4px 8px rgba(0,0,0,.3)}
+
+dialog{border:0;padding:0;background:none;max-width:none;max-height:none;overflow:visible;color:#2b2620}
+dialog::backdrop{background:rgba(10,5,0,.78)}
+.dcard{position:relative;width:min(92vw,600px);max-height:90svh;overflow:auto;background:linear-gradient(155deg,#ede6d3,#ddd3b9);padding:1.6rem 1.6rem 1.4rem;box-shadow:0 2px 3px rgba(0,0,0,.4),6px 18px 40px rgba(0,0,0,.65),inset 0 0 40px rgba(120,90,50,.25);font-family:"Special Elite","Courier New",monospace}
+.dx{position:absolute;top:.4rem;right:.6rem;border:0;background:none;font-size:2rem;line-height:1;cursor:pointer;color:#5a4a38;z-index:3}
+.clip{position:absolute;top:2.2rem;left:-.5rem;width:44px;height:88px;z-index:2;rotate:-18deg;filter:drop-shadow(1px 2px 1px rgba(0,0,0,.4))}
+.polar{width:min(78%,360px);margin:0 auto 1.1rem;background:#f8f6ee;padding:.7rem .7rem .9rem;rotate:-2deg;box-shadow:0 1px 2px rgba(0,0,0,.4),3px 9px 16px rgba(0,0,0,.4)}
+.ph{position:relative;aspect-ratio:1/1;background:#15161b;display:grid;place-items:center;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph span{display:none;color:#9aa3b5;font-size:.8rem;text-align:center;padding:1rem}
+.ph.nopic span{display:block}
+.dcard h2{margin:.2rem 0 .5rem;font:800 clamp(2rem,8vw,3rem)/1 Archivo,Impact,sans-serif;font-stretch:62%;text-transform:uppercase;letter-spacing:.01em;color:#2a2622}
+.rowt{border-top:1.5px solid #6d6556;border-bottom:1.5px solid #6d6556;padding:.5rem 0;margin:.4rem 0 .9rem;font-size:.92rem}
+.rowt b,.desc b{font:800 1.1rem/1 Archivo,Impact,sans-serif;font-stretch:62%;letter-spacing:.02em;margin-right:.2rem}
+.desc{font-size:.9rem;line-height:1.5;margin:.5rem 0}
+.gsa{font-weight:bold;white-space:nowrap}
+.gsa i{font-style:normal;text-shadow:0 0 1px rgba(0,0,0,.35)}
+.cols{display:grid;grid-template-columns:1fr 1fr;border-top:1.5px solid #6d6556;margin-top:1rem;padding-top:.7rem}
+.cols div+div{border-left:1.5px solid #6d6556;padding-left:.9rem}
+.cols h3{margin:0 0 .3rem;font:800 1.1rem/1 Archivo,Impact,sans-serif;font-stretch:62%;text-transform:uppercase}
+.cols ol{margin:0;padding-left:1.1rem;font-size:.85rem;line-height:1.45}
+@media (max-width:520px){.cols{grid-template-columns:1fr}.cols div+div{border-left:0;padding-left:0;border-top:1.5px solid #6d6556;margin-top:.7rem;padding-top:.7rem}}
+.club{display:grid;grid-template-columns:2rem 1fr;gap:.6rem;padding:.7rem 0;border-top:1px dashed #8a7f6d}
+.club:first-of-type{border-top:0}
+.club .no{width:1.8rem;height:1.8rem;border-radius:50%;border:2px solid #2b2620;display:grid;place-items:center;font-size:.85rem}
+.club h3{margin:0;font:800 1.25rem/1.1 Archivo,Impact,sans-serif;font-stretch:62%;text-transform:uppercase}
+.club .role{margin:.1rem 0 .25rem;color:#b3261e;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em}
+.club p{margin:.15rem 0;font-size:.88rem;line-height:1.45}
+.dcard.wood{background:repeating-linear-gradient(91deg,#6e4728 0 4px,#7a4f2c 4px 11px,#63401f 11px 14px,#74492a 14px 22px);box-shadow:0 2px 3px rgba(0,0,0,.4),6px 18px 40px rgba(0,0,0,.65),inset 0 0 70px rgba(0,0,0,.45);color:#f4ecd8}
+.dcard.wide{width:min(94vw,980px)}
+.wood .dx{color:#f4ecd8;text-shadow:0 1px 2px rgba(0,0,0,.6)}
+.tabhead{background:linear-gradient(150deg,#fbf5e4,#e9dfc4);color:#2b2620;display:inline-block;padding:.5rem 1.1rem .6rem;box-shadow:0 2px 2px rgba(0,0,0,.3),3px 8px 14px rgba(0,0,0,.4);rotate:-.8deg}
+.tabhead small{display:block;letter-spacing:.2em;font-size:.7rem;color:#b3261e}
+.tabhead h2{margin:0;color:#2b2620;font-size:clamp(1.7rem,5vw,2.4rem)}
+.tabhead span{font-size:.8rem;color:#6a6258}
+.folders{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.7rem 1.2rem;margin-top:1.5rem;padding:.4rem .2rem 1rem}
+.folder{position:relative;isolation:isolate;border:0;cursor:pointer;font:inherit;text-align:left;min-height:122px;padding:1.5rem .7rem .7rem;background:linear-gradient(160deg,#ebcf92,#d4b068);border-radius:3px 8px 4px 4px;rotate:var(--rot);color:#2b2620;box-shadow:0 1px 1px rgba(0,0,0,.4),2px 5px 8px rgba(0,0,0,.35),4px 12px 18px rgba(0,0,0,.3);transition:transform .2s,rotate .2s}
+.folder::before{content:"";position:absolute;top:-11px;left:0;width:44%;height:13px;background:#dcbb76;border-radius:6px 6px 0 0;box-shadow:0 -1px 1px rgba(0,0,0,.15)}
+.folder::after{content:"";position:absolute;z-index:-1;top:-5px;left:8%;right:8%;height:12px;background:#fbf8ef;box-shadow:0 1px 2px rgba(0,0,0,.3)}
+.folder:hover,.folder:focus-visible{transform:translateY(-5px);rotate:0deg}
+.lab{display:block;background:#fbf8ef;padding:.4rem .5rem;box-shadow:0 1px 2px rgba(0,0,0,.25)}
+.lab i{display:block;font-style:normal;font-size:.62rem;letter-spacing:.14em;color:#b3261e}
+.lab b{display:block;font-size:.8rem;line-height:1.2;text-transform:uppercase;margin:.1rem 0 .15rem}
+.lab small{display:block;font-size:.66rem;line-height:1.3;color:#6a6258}
+.back{border:0;background:#f4ecd8;color:#2b2620;padding:.4rem .9rem;font:inherit;font-size:.85rem;cursor:pointer;margin-bottom:1rem;box-shadow:0 2px 5px rgba(0,0,0,.4)}
+.back:hover{background:#f2c230}
+.case{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:1.4rem;align-items:start;color:#2b2620}
+.case[hidden]{display:none}
+.cert{position:relative;display:block;background:#f8f6ee;padding:.6rem;box-shadow:0 1px 2px rgba(0,0,0,.4),4px 12px 22px rgba(0,0,0,.5);rotate:-.6deg}
+.cert::before{content:"";position:absolute;top:-10px;left:50%;width:84px;margin-left:-42px;height:18px;background:rgba(236,224,160,.8);box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.cert img{display:block;width:100%;height:auto}
+.info{background:linear-gradient(155deg,#ede6d3,#ddd3b9);padding:1.1rem 1.2rem;box-shadow:0 1px 2px rgba(0,0,0,.4),4px 12px 22px rgba(0,0,0,.45)}
+.info small{letter-spacing:.14em;font-size:.7rem;color:#b3261e}
+.info h3{margin:.2rem 0 .7rem;font:800 clamp(1.5rem,4vw,2rem)/1.05 Archivo,Impact,sans-serif;font-stretch:62%;text-transform:uppercase}
+.info dl{margin:0 0 .7rem;border-top:1.5px solid #6d6556;border-bottom:1.5px solid #6d6556;padding:.5rem 0;font-size:.82rem}
+.info dt{font-weight:bold;text-transform:uppercase;font-size:.7rem;letter-spacing:.08em;color:#6a6258}
+.info dd{margin:0 0 .4rem}
+.info p{margin:0;font-size:.88rem;line-height:1.5}
+@media (max-width:700px){.case{grid-template-columns:1fr}.folders{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
+.folder.pf{padding:.55rem;min-height:0}
+.folder .cv{display:block;width:100%;height:auto;border-radius:3px;margin-bottom:.5rem;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+.ghbtn{display:inline-block;margin-top:1.1rem;background:#15171c;color:#f4ecd8;padding:.55rem 1.1rem;text-decoration:none;font-size:.9rem;border:1px solid #3a3f4a;box-shadow:0 3px 8px rgba(0,0,0,.5)}
+.ghbtn:hover,.ghbtn:focus-visible{background:#f2c230;color:#15171c}
+.cert svg{display:block;width:100%;height:auto}
+.info ol{margin:.3rem 0 0;padding-left:1.4rem;font-size:.88rem;line-height:1.6}
+.info a{color:#1a4f9c}
+.info a.btn{color:#f4ecd8}
+.dcard.mid{width:min(92vw,720px)}
+.fileno{display:block;letter-spacing:.18em;font-size:.7rem;color:#b3261e}
+.skg{margin:1rem 0 .1rem;font:800 1rem/1 Archivo,Impact,sans-serif;font-stretch:62%;text-transform:uppercase;letter-spacing:.06em;color:#b3261e}
+.sk{display:grid;grid-template-columns:minmax(120px,200px) 1fr;gap:.3rem 1rem;align-items:center;padding:.5rem 0;border-top:1px dashed #8a7f6d}
+.skg+.sk{border-top:0}
+.sk b{display:block;font-size:.92rem;line-height:1.2}
+.sk .lv{display:block;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:#6a6258}
+.sk.zones{border-top:0;padding:.2rem 0}
+.zn{display:grid;grid-template-columns:repeat(3,1fr);text-align:center;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:#6a6258}
+.gauge{position:relative;height:18px;background:#d3c9ae;border:1.5px solid #2b2620;border-radius:2px;box-shadow:inset 0 1px 4px rgba(0,0,0,.28)}
+.gauge::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent calc(33.33% - 1px),#2b2620 calc(33.33% - 1px) 33.33%,transparent 33.33% calc(66.66% - 1px),#2b2620 calc(66.66% - 1px) 66.66%,transparent 66.66%);pointer-events:none;opacity:.7}
+.gauge .fill{position:absolute;left:0;top:0;bottom:0;width:0;background:repeating-linear-gradient(135deg,#f2c230 0 6px,#e2b11e 6px 12px);transition:width .9s cubic-bezier(.4,0,.2,1)}
+.gauge .pin2{position:absolute;z-index:1;top:50%;left:0;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.9) 0 8%,#c8312b 32%,rgba(0,0,0,.65) 130%);box-shadow:2px 3px 3px rgba(0,0,0,.45);transition:left .9s cubic-bezier(.4,0,.2,1)}
+.go .gauge .fill{width:var(--lvl)}
+.go .gauge .pin2{left:var(--lvl)}
+.cefr{display:grid;grid-template-columns:repeat(6,1fr);gap:3px}
+.cefr span{height:28px;display:grid;place-items:center;font-size:.74rem;border:1.5px solid #2b2620;background:#d3c9ae;color:#6a6258}
+.cefr .done{background:#f2c230;color:#2b2620;font-weight:bold}
+.cefr .now{background:repeating-linear-gradient(135deg,#f2c230 0 4px,#fbf8ef 4px 8px);border-style:dashed;color:#2b2620;font-weight:bold}
+@media (max-width:560px){.sk{grid-template-columns:1fr}.sk.zones>div:first-child{display:none}}
+/* about: file slides out of a CONFIDENTIAL folder */
+.pull{position:relative}
+.sleeve{display:none;position:absolute;z-index:6;left:-18px;right:-18px;bottom:-34px;height:96px;pointer-events:none;border-radius:4px 4px 8px 8px;background:linear-gradient(180deg,#e8cb86,#d2ad63);box-shadow:0 -2px 6px rgba(0,0,0,.35),0 8px 18px rgba(0,0,0,.5);display:none;place-items:start center;padding-top:14px}
+.sleeve::before{content:"";position:absolute;top:-13px;left:8%;width:30%;height:14px;background:#d9b872;border-radius:6px 6px 0 0}
+.sleeve span{display:inline-block;border:3px solid var(--red);color:var(--red);padding:.05rem .8rem;font:800 1.5rem/1.1 Archivo,Impact,sans-serif;font-stretch:62%;letter-spacing:.14em;text-transform:uppercase;rotate:-3deg;opacity:.9}
+#dossier.pulling .sleeve{display:grid;animation:slv 1.9s ease both}
+#dossier.pulling .pull{animation:pullclip 1.9s linear both}
+#dossier.pulling .dcard{animation:pullcard 1.9s cubic-bezier(.3,.1,.2,1) both}
+@keyframes pullclip{0%,72%{clip-path:inset(-80px -80px 0 -80px)}73%,100%{clip-path:inset(-80px -80px -400px -80px)}}
+@keyframes pullcard{0%,14%{transform:translateY(103%) rotate(-2deg)}62%{transform:translateY(-2%) rotate(.8deg)}100%{transform:none}}
+@keyframes slv{0%{opacity:0;transform:translateY(30px)}10%,68%{opacity:1;transform:none}100%{opacity:0;transform:translateY(70px)}}
+@media (prefers-reduced-motion:reduce){#dossier.pulling .pull,#dossier.pulling .dcard,#dossier.pulling .sleeve{animation:none!important}#dossier.pulling .sleeve{display:none}}
+
+.resbtn{position:fixed;top:calc(var(--fw) + 12px);right:calc(var(--fw) + 14px);z-index:30;border:0;cursor:pointer;font:inherit;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:#1d1a16;background:linear-gradient(160deg,#f6cc3c,#e0b020);padding:.6rem 1rem .5rem;rotate:2deg;box-shadow:0 2px 2px rgba(0,0,0,.3),3px 8px 14px rgba(0,0,0,.4);transition:rotate .2s,transform .2s}
+.resbtn::before{content:"";position:absolute;top:-6px;left:50%;width:13px;height:13px;margin-left:-6px;border-radius:50%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.9) 0 8%,#c8312b 32%,rgba(0,0,0,.65) 130%);box-shadow:2px 3px 3px rgba(0,0,0,.45)}
+.resbtn small{display:block;font-size:.6rem;letter-spacing:.2em;color:#7a5a00}
+.resbtn:hover,.resbtn:focus-visible{rotate:0deg;transform:translateY(-2px)}
+@media (max-width:760px){.resbtn{top:auto;bottom:calc(var(--fw) + 14px);right:calc(var(--fw) + 10px)}}
+.dcard.resume{width:min(94vw,820px);background:#fff;color:#1d1a16;font-family:Arial,Helvetica,sans-serif;padding:0 1.8rem 1.6rem;line-height:1.45}
+.rbar{position:sticky;top:0;z-index:2;background:#fff;display:flex;gap:.6rem;flex-wrap:wrap;padding:1rem 2.6rem .8rem 0;margin-bottom:.4rem;border-bottom:1px solid #ddd}
+.rbtn{display:inline-block;background:#1d1a16;color:#fff;padding:.5rem .9rem;text-decoration:none;font-size:.85rem;font-weight:bold}
+.rbtn.alt{background:#fff;color:#1d1a16;border:1.5px solid #1d1a16}
+.rbtn:hover,.rbtn:focus-visible{background:#f2c230;color:#1d1a16}
+.resume h2{margin:.6rem 0 0;font:700 clamp(1.7rem,6vw,2.3rem)/1.1 Arial,Helvetica,sans-serif;font-stretch:100%;text-transform:none;letter-spacing:0}
+.resume .rsub{margin:.2rem 0;color:#555;font-size:.9rem}
+.resume .rcon{margin:.2rem 0 0;font-size:.85rem}
+.resume a{color:#1a4f9c}.resume a.rbtn{color:#fff}.resume a.rbtn.alt{color:#1d1a16}.resume a.rbtn:hover{color:#1d1a16}
+.resume h3{margin:1rem 0 .3rem;font:700 .8rem/1 Arial,Helvetica,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#b3261e;border-bottom:1.5px solid #1d1a16;padding-bottom:.3rem}
+.resume p{margin:.3rem 0;font-size:.88rem}
+.resume dl{margin:0;display:grid;grid-template-columns:minmax(110px,150px) 1fr;gap:.25rem .8rem;font-size:.86rem}
+.resume dt{font-weight:bold}.resume dd{margin:0}
+.resume .rp{margin:.4rem 0;font-size:.86rem}.resume .rp i{color:#555;font-style:normal}.resume .rp p{margin:.1rem 0}
+.rach{margin:0;padding-left:1.1rem;columns:2;column-gap:1.6rem;font-size:.85rem}
+.rach li{break-inside:avoid;margin-bottom:.25rem}.rach span{color:#666}
+@media (max-width:640px){.rach{columns:1}.resume dl{grid-template-columns:1fr}.resume dt{margin-top:.3rem}}
+.redu{display:flex;justify-content:space-between;gap:1rem;margin:.35rem 0;font-size:.88rem}
+.redu div b{display:block}.redu div span{display:block;color:#333}.redu i{font-style:normal;color:#555;white-space:nowrap}
+.resume .rcon b{font-weight:bold}
+/* stand-out layer: clue cards + resume button sit clearly above the board */
+#clutter{filter:brightness(.86) saturate(.9)}
+#rand{opacity:.85}
+.clue{width:clamp(165px,19vw,275px);padding:2rem .95rem .9rem;background:linear-gradient(150deg,#fffef8,#f3ead2);border:2.5px solid #1d1a16;box-shadow:0 3px 0 #1d1a16,4px 9px 12px rgba(0,0,0,.5),9px 20px 28px rgba(0,0,0,.55)}
+.clue small{position:absolute;top:0;left:0;right:0;margin:0;background:#b3261e;color:#fff;padding:.2rem .7rem;font-size:.72rem;letter-spacing:.18em}
+.clue .pin{--pc:#f2c230;top:-9px}
+.clue b{font-size:clamp(1.1rem,1.8vw,1.55rem);color:#1d1a16}
+.clue span.t{font-size:.86rem;color:#3a342c}
+.resbtn{padding:.85rem 1.5rem .75rem;font-size:1.2rem;letter-spacing:.14em;border:3px solid #1d1a16;background:linear-gradient(160deg,#ffdb55,#f0b81c);box-shadow:0 4px 0 #1d1a16,6px 12px 18px rgba(0,0,0,.55);animation:nudge 3.2s ease-in-out infinite}
+.resbtn small{font-size:.7rem;letter-spacing:.14em;color:#1d1a16}
+.resbtn::before{width:16px;height:16px;margin-left:-8px;top:-9px}
+@keyframes nudge{0%,86%,100%{rotate:2deg}90%{rotate:-2.5deg}94%{rotate:3.5deg}}
+@media (prefers-reduced-motion:reduce){.resbtn{animation:none}}
+@media (max-width:760px){.clue{width:min(86vw,350px)}.resbtn{font-size:1.1rem}}
+main{max-width:980px;margin:auto;padding:3rem 1.2rem 4rem}
+.file{background:var(--paper);color:var(--ink);padding:1.6rem 1.4rem;margin:0 0 2.6rem;position:relative;box-shadow:0 .6rem 1.2rem rgba(0,0,0,.4)}
+.file::before{content:"";position:absolute;top:-12px;left:1.4rem;width:90px;height:24px;background:var(--tape);opacity:.9}
+.file h2{margin:.2rem 0 .8rem;font-size:1.6rem;text-transform:uppercase}
+.file p{margin:.5rem 0}
+.stamp{position:absolute;right:1rem;top:1rem;border:3px solid var(--red);color:var(--red);padding:.1rem .6rem;font-size:.85rem;transform:rotate(6deg);text-transform:uppercase}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.item{border:1px dashed #8a7f6d;padding:.8rem}
+.item h3{margin:0 0 .3rem;font-size:1.05rem}.item p{margin:.2rem 0;font-size:.92rem}
+.chips span{display:inline-block;border:1.5px solid var(--ink);padding:.1rem .6rem;margin:.2rem .2rem .2rem 0;font-size:.85rem}
+.win{color:var(--red);font-weight:bold;font-size:.8rem}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);padding:.5rem 1rem;text-decoration:none}
+footer{text-align:center;padding:2rem 1rem;color:#bfae92;font-size:.9rem}
+:focus-visible{outline:3px solid var(--tape);outline-offset:3px}
+@media (max-width:760px){
+  .hero{min-height:auto;display:flex;flex-direction:column;align-items:center;padding:8rem 0 5rem}
+  .label{top:1.4rem}
+  .char{position:relative;left:auto;bottom:auto;translate:none;height:auto;width:min(66vw,280px);margin:.5rem 0}
+  svg#strings{display:none}
+  .clue{position:relative;left:auto!important;right:auto!important;top:auto!important;width:min(84vw,340px);margin:.8rem 0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<button class="resbtn" type="button" id="resbtn" aria-haspopup="dialog">Resume <small>View &middot; Download PDF</small></button>
+<header class="hero" id="top">
+  <svg class="cork" aria-hidden="true" preserveAspectRatio="none">
+    <filter id="cf" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency=".4" numOctaves="3" seed="5" result="g"/>
+      <feDiffuseLighting in="g" lighting-color="#e6b176" surfaceScale="1.1" diffuseConstant="1.0" result="lit"><feDistantLight azimuth="235" elevation="50"/></feDiffuseLighting>
+      <feTurbulence type="fractalNoise" baseFrequency=".012 .02" numOctaves="3" seed="11" result="m"/>
+      <feColorMatrix in="m" type="matrix" values="0 0 0 0 .62  0 0 0 0 .42  0 0 0 0 .25  0 0 0 1.7 -.5" result="mot"/>
+      <feBlend in="mot" in2="lit" mode="multiply" result="b"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="2" result="f"/>
+      <feColorMatrix in="f" type="matrix" values="0 0 0 0 .2  0 0 0 0 .11  0 0 0 0 .05  0 0 0 9 -7.6" result="fl"/>
+      <feComposite in="fl" in2="b" operator="over"/>
+    </filter>
+    <rect width="100%" height="100%" fill="#b5824f" filter="url(#cf)"/>
+  </svg>
+  <div id="clutter" aria-hidden="true"></div>
+  <svg id="rand" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+  <svg id="strings" aria-hidden="true"></svg>
+
+  <div class="label"><small>CASE FILE 001 · SUBJECT</small><h1>ANJALI RATHORE</h1>
+    <nav aria-label="Main"><a href="#about">About</a><a href="#skills">Superpowers</a><a href="#projects">Projects</a><a href="#achievements">Achievements</a><a href="#clubs">Clubs</a></nav></div>
+
+  <a class="clue c1" href="#about" id="p1"><i class="pin"></i><small>CLUE 01</small><b>About Me</b><span class="t">Who is this person?</span></a>
+  <a class="clue c2" href="#skills" id="p2"><i class="pin"></i><small>CLUE 02</small><b>Superpowers</b><span class="t">Powers detected. Tap to scan.</span></a>
+  <a class="clue c3" href="#projects" id="p3"><i class="pin"></i><small>CLUE 03</small><b>Projects</b><span class="t">Things built, broken, fixed.</span></a>
+  <a class="clue c4" href="#achievements" id="p4"><i class="pin"></i><small>CLUE 04</small><b>Achievements</b><span class="t">The trail of wins.</span></a>
+  <a class="clue c5" href="#clubs" id="p5"><i class="pin"></i><small>CLUE 05</small><b>Clubs</b><span class="t">Where the team work happens.</span></a>
+
+  <!-- REPLACE with your own caricature. Keep ids eyeL, eyeR, pupL, pupR; your art's eyes must be blank. -->
+  <div class="char" aria-hidden="true">
+    <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+      <path d="M92 205 C66 62 150 16 200 16 C250 16 334 62 308 205 C322 300 335 395 352 452 L48 452 C65 395 78 300 92 205Z" fill="#17110e"/>
+      <rect x="172" y="300" width="56" height="80" rx="22" fill="#a05f36"/>
+      <path d="M18 500 C24 412 98 364 200 364 C302 364 376 412 382 500Z" fill="#101012"/>
+      <path d="M100 386 C104 352 150 344 200 344 C250 344 296 352 300 386 C270 412 130 412 100 386Z" fill="#1c1c21"/>
+      <path d="M130 395 C150 410 250 410 270 395" stroke="#2c2c33" stroke-width="3" fill="none"/>
+      <path d="M172 402 L166 458 M228 402 L234 458" stroke="#d9dbe2" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="166" cy="461" r="4" fill="#d9dbe2"/><circle cx="234" cy="461" r="4" fill="#d9dbe2"/>
+      <path d="M130 470 L270 470 L285 500 L115 500Z" fill="#17171b" stroke="#2c2c33" stroke-width="3"/>
+      <text x="108" y="436" font-family="Courier New,monospace" font-weight="bold" font-size="20" fill="#39ff88">&lt;/&gt;</text>
+      <path d="M90 215 C76 305 74 385 62 448 C98 460 126 438 130 402 C122 335 120 275 124 218Z" fill="#17110e"/>
+      <path d="M310 215 C324 305 326 385 338 448 C302 460 274 438 270 402 C278 335 280 275 276 218Z" fill="#17110e"/>
+      <path d="M84 300 C80 350 78 400 72 440 M316 300 C320 350 322 400 328 440" stroke="#2e231d" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <ellipse cx="200" cy="205" rx="95" ry="102" fill="#b87444"/>
+      <ellipse cx="200" cy="232" rx="82" ry="72" fill="#c07c4a" opacity=".55"/>
+      <ellipse cx="128" cy="262" rx="19" ry="13" fill="#e0705a" opacity=".5"/><ellipse cx="272" cy="262" rx="19" ry="13" fill="#e0705a" opacity=".5"/>
+      <path d="M128 183 Q152 168 182 178" stroke="#1b1411" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M218 178 Q248 168 272 183" stroke="#1b1411" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <ellipse id="eyeL" cx="158" cy="218" rx="30" ry="29" fill="#fffdf6" stroke="#3a2418" stroke-width="2"/>
+      <ellipse id="eyeR" cx="242" cy="218" rx="30" ry="29" fill="#fffdf6" stroke="#3a2418" stroke-width="2"/>
+      <g id="pupL"><circle cx="158" cy="218" r="15" fill="#2a1a12"/><circle cx="164" cy="211" r="4.5" fill="#fff"/><circle cx="153" cy="224" r="2" fill="#fff"/></g>
+      <g id="pupR"><circle cx="242" cy="218" r="15" fill="#2a1a12"/><circle cx="248" cy="211" r="4.5" fill="#fff"/><circle cx="237" cy="224" r="2" fill="#fff"/></g>
+      <path d="M130 205 Q124 198 118 197 M134 198 Q130 190 124 187 M270 205 Q276 198 282 197 M266 198 Q270 190 276 187" stroke="#1b1411" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M198 238 Q194 256 203 258" stroke="#8f5430" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <path d="M170 280 Q200 306 232 280" stroke="#6a2f22" stroke-width="5" fill="#fffdf6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M105 190 C100 90 156 64 206 66 C260 66 302 98 296 190 C286 150 258 118 220 114 C196 140 150 156 105 190Z" fill="#17110e"/>
+      <path d="M140 108 C165 90 205 88 235 100" stroke="#3a2c25" stroke-width="4" fill="none" stroke-linecap="round" opacity=".7"/>
+    </svg>
+  </div>
+  <div class="tag">Ordinary was never the plan.</div>
+</header>
+
+<main>
+  <section class="file" id="about"><span class="stamp">Subject profile</span>
+    <h2>Clue 01: About Me</h2>
+    <p>Hi! I'm Anjali Rathore, a Second-Year Computer Engineering student at CCOEW, Pune.</p>
+    <p>I love exploring diverse fields, stepping outside my comfort zone, and discovering new opportunities. My interests span technology, AI, AR/VR, digital marketing, finance, event management, and communication.</p>
+    <p>I have a foundation in C, Java, and SQL, and I'm currently exploring AI agents, Generative AI, and emerging technologies through platforms like Google Labs. Alongside my technical interests, I'm passionate about marketing, branding, social media, and community building. Being a <span class="gsa"><i style="color:#4285F4">G</i><i style="color:#EA4335">o</i><i style="color:#FBBC05">o</i><i style="color:#4285F4">g</i><i style="color:#34A853">l</i><i style="color:#EA4335">e</i> <i style="color:#34A853">Student</i> <i style="color:#4285F4">Ambassador</i></span> has allowed me to explore these interests through organizing activities, promoting initiatives, and connecting people with technology.</p>
+    <p>Beyond academics, I'm actively involved in student communities like TEDxCCOEW, CSI, SWE, AVATRI, and others, where I get to explore event management, public relations, teamwork, and leadership. I also enjoy learning languages and am continuing my German journey after completing A1 and A2 certifications.</p>
+    <p>I believe in learning beyond classrooms, embracing new experiences, and connecting different interests to create meaningful opportunities. Always curious, always learning, and always ready to explore something new!</p></section>
+
+  <section class="file go" id="skills"><span class="stamp">Evidence found</span>
+    <h2>Clue 02: Superpowers</h2>
+    <div class="sk zones" aria-hidden="true"><div></div><div class="zn"><span>Beginner</span><span>Intermediate</span><span>Advanced</span></div></div><h3 class="skg">Code</h3><div class="sk"><div><b>C Programming</b><span class="lv">Intermediate–Advanced</span></div><div class="gauge" role="img" aria-label="C Programming: Intermediate to Advanced" style="--lvl:66.66%"><i class="fill"></i><i class="pin2"></i></div></div><div class="sk"><div><b>Java</b><span class="lv">Beginner–Intermediate</span></div><div class="gauge" role="img" aria-label="Java: Beginner–Intermediate" style="--lvl:33%"><i class="fill"></i><i class="pin2"></i></div></div><div class="sk"><div><b>SQL / MySQL</b><span class="lv">Beginner–Intermediate</span></div><div class="gauge" role="img" aria-label="SQL / MySQL: Beginner–Intermediate" style="--lvl:33%"><i class="fill"></i><i class="pin2"></i></div></div><h3 class="skg">AI</h3><div class="sk"><div><b>AI Agents &amp; Generative AI</b><span class="lv">Intermediate</span></div><div class="gauge" role="img" aria-label="AI Agents and Generative AI: Intermediate" style="--lvl:50%"><i class="fill"></i><i class="pin2"></i></div></div><h3 class="skg">Design</h3><div class="sk"><div><b>AutoCAD</b><span class="lv">Beginner–Intermediate</span></div><div class="gauge" role="img" aria-label="AutoCAD: Beginner–Intermediate" style="--lvl:33%"><i class="fill"></i><i class="pin2"></i></div></div><div class="sk"><div><b>Figma</b><span class="lv">Beginner–Intermediate</span></div><div class="gauge" role="img" aria-label="Figma: Beginner–Intermediate" style="--lvl:33%"><i class="fill"></i><i class="pin2"></i></div></div><div class="sk"><div><b>Canva</b><span class="lv">Intermediate–Advanced</span></div><div class="gauge" role="img" aria-label="Canva: Intermediate to Advanced" style="--lvl:66.66%"><i class="fill"></i><i class="pin2"></i></div></div><h3 class="skg">Marketing</h3><div class="sk"><div><b>SEO Optimization</b><span class="lv">Beginner</span></div><div class="gauge" role="img" aria-label="SEO Optimization: Beginner" style="--lvl:17%"><i class="fill"></i><i class="pin2"></i></div></div><h3 class="skg">Language</h3><div class="sk"><div><b>German</b><span class="lv">A2 certified &middot; learning B1</span></div><div class="cefr" role="img" aria-label="German: A2 certified, currently learning B1"><span class="done">A1</span><span class="done">A2</span><span class="now">B1</span><span>B2</span><span>C1</span><span>C2</span></div></div></section>
+
+  <section class="file" id="projects"><span class="stamp">Exhibit A</span>
+    <h2>Clue 03: Projects</h2>
+    <div class="grid"><div class="item"><h3>OTT Subscription Management System</h3><p><b>Tech:</b> Java, Java Swing, JDBC, MySQL</p><p>Developed a desktop-based application to manage users, OTT service plans, subscriptions, payments, budgets and renewal alerts. Integrated Java Swing for the graphical interface and JDBC for database connectivity with MySQL. Implemented database operations using SQL queries, stored procedures, functions and triggers to maintain data consistency and simplify subscription management.</p><p><a class="btn" href="https://github.com/anjalirathoreclg/ott-subscription-management" target="_blank" rel="noopener">Source on GitHub</a></p></div><div class="item"><h3>Load Balancer Simulator</h3><p><b>Tech:</b> Java, Data Structures, Algorithms (DSA)</p><p>Developed a Java-based load balancer simulator to demonstrate efficient distribution of incoming requests across multiple servers. Implemented Round Robin and Least Load scheduling algorithms, along with server failure and recovery, request queuing and autoscaling. Used custom data structures including dynamic arrays, linked queues, stacks, hash tables and binary heaps.</p><p><a class="btn" href="https://github.com/anjalirathoreclg/java-load-balancer-simulator" target="_blank" rel="noopener">Source on GitHub</a></p></div><div class="item"><h3>PAWSH: Pet E-commerce Website</h3><p><b>Tech:</b> React.js, JavaScript, HTML, CSS, Vite, Netlify, Google Analytics</p><p>Designed and developed a pet e-commerce website catering to dog and cat owners, featuring breed-specific product browsing and multiple shopping categories. Built an interactive, responsive shopping experience using React and JavaScript. Deployed the website through Netlify and integrated Google Analytics to monitor website traffic and understand user engagement.</p></div><div class="item"><h3>Others</h3><ol type="a" style="margin:.2rem 0;padding-left:1.2rem;font-size:.92rem"><li>Car Sale Prediction Model for Hyundai during the Coronavirus pandemic (Python)</li><li>Phishing URL Detector connected to Gmail</li><li>Budget Manager (Python)</li></ol></div></div>
+    <p style="margin-top:1rem"><a class="btn" href="https://github.com/anjalirathoreclg" target="_blank" rel="noopener">GitHub profile</a> <a class="btn" href="https://flourishing-beignet-592533.netlify.app/" target="_blank" rel="noopener">PAWSH live site</a></p></section>
+
+  <section class="file" id="achievements"><span class="stamp">Exhibit B</span>
+    <h2>Clue 04: Achievements</h2>
+    <div class="grid">
+      <div class="item"><span class="win">TOP 8 OF 45+ TEAMS</span><h3>The Failure Files</h3><p>Diagnosed a failed food startup and pitched a recovery plan in three minutes.</p></div>
+      
+      <div class="item"><h3>CSI CCEW Club</h3><p>Designed event emails, social carousels, recruitment mails and the club t-shirt.</p></div>
+    
+    
+      <a class="item" href="assets/certs/acmw-shinigami.jpg" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><img src="assets/certs/acmw-shinigami.jpg" alt="ACM-W CCEW certificate of participation for the Shinigami Stack workshop and DSA competition" loading="lazy" style="width:100%;display:block;margin-bottom:.4rem"><h3>ACM-W: Shinigami Stack</h3><p>DSA workshop &amp; competition &middot; Nov 2025</p></a>
+      <a class="item" href="assets/certs/codigo.jpg" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><img src="assets/certs/codigo.jpg" alt="LOOP CCEW certificate of participation for CODIGO 4.1 Round 3" loading="lazy" style="width:100%;display:block;margin-bottom:.4rem"><h3>CODIGO 4.1</h3><p>Round 3 &middot; Technical Interview &middot; Jan 2026</p></a>
+      <a class="item" href="assets/certs/dipex.jpg" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><img src="assets/certs/dipex.jpg" alt="Certificate of volunteering for the DIPEX-2026 Idea Presentation Round" loading="lazy" style="width:100%;display:block;margin-bottom:.4rem"><h3>DIPEX 2026</h3><p>Volunteer &middot; Idea Presentation Round &middot; Feb 2026</p></a>
+      <a class="item" href="assets/certs/tedx-kintsugi.jpg" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><img src="assets/certs/tedx-kintsugi.jpg" alt="TEDxCCOEW certificate of recognition for the Kintsugi event management team" loading="lazy" style="width:100%;display:block;margin-bottom:.4rem"><h3>TEDxCCOEW: Kintsugi</h3><p>Event Management Team &middot; Feb 2026</p></a>
+      <a class="item" href="assets/certs/mlsc-anvay.jpg" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><img src="assets/certs/mlsc-anvay.jpg" alt="Microsoft Learn Student Chapter certificate for ANVAY 2026 The BlockCity Edition" loading="lazy" style="width:100%;display:block;margin-bottom:.4rem"><h3>MLSC ANVAY 2026</h3><p>Web3 &middot; BlockCity Edition &middot; 2026</p></a>
+      <a class="item" href="assets/certs/nism.jpg" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><img src="assets/certs/nism.jpg" alt="NISM certificate for the Financial Literacy Course for Bharat" loading="lazy" style="width:100%;display:block;margin-bottom:.4rem"><h3>NISM Financial Literacy</h3><p>eLearning course &middot; Bharat &middot; Jun 2026</p></a>
+      <a class="item" href="assets/certs/azure-ai.jpg" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><img src="assets/certs/azure-ai.jpg" alt="Microsoft Certified Azure AI Fundamentals certificate" loading="lazy" style="width:100%;display:block;margin-bottom:.4rem"><h3>Azure AI Fundamentals</h3><p>Microsoft Certified &middot; Jul 2026</p></a>
+      <a class="item" href="assets/certs/google-genai.jpg" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><img src="assets/certs/google-genai.jpg" alt="Google Cloud Gen AI Academy APAC 2026 Cohort 2 certificate of completion" loading="lazy" style="width:100%;display:block;margin-bottom:.4rem"><h3>Google Cloud Gen AI Academy</h3><p>APAC 2026 &middot; Cohort 2 &middot; Jul 2026</p></a>
+      <a class="item" href="assets/certs/failure-files.jpg" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><img src="assets/certs/failure-files.jpg" alt="Certificate of participation for The Failure Files Diagnose and Decode, team Sherlocked, food domain" loading="lazy" style="width:100%;display:block;margin-bottom:.4rem"><h3>The Failure Files</h3><p>Diagnose and Decode &middot; Food &middot; Oct 2026</p></a>
+      <a class="item" href="assets/certs/cybersecurity.jpg" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><img src="assets/certs/cybersecurity.jpg" alt="Cybersecurity Club certificate of recognition, top 3 performer in the Cybersecurity Awareness Workshop" loading="lazy" style="width:100%;display:block;margin-bottom:.4rem"><h3>Cybersecurity Workshop</h3><p>Top 3 Performer &middot; Oct 2026</p></a>
+    </div></section>
+
+  <section class="file" id="clubs"><span class="stamp">Exhibit C</span>
+    <h2>Clue 05: Clubs</h2>
+    <div class="club"><span class="no">1</span><div><h3>TEDx CCOEW</h3><p class="role">Event Management Member · since 2025</p><p>Contributing to event planning, coordination, backstage execution, and overall event experiences. Most recent event: Kintsugi.</p></div></div>
+    <div class="club"><span class="no">2</span><div><h3><span class="gsa"><i style="color:#4285F4">G</i><i style="color:#EA4335">o</i><i style="color:#FBBC05">o</i><i style="color:#4285F4">g</i><i style="color:#34A853">l</i><i style="color:#EA4335">e</i> <i style="color:#34A853">Student</i> <i style="color:#4285F4">Ambassador</i></span></h3><p class="role">Campus Ambassador</p><p>Represent Google on campus by building student communities, promoting Google technologies and AI tools, organizing workshops, contests, and engagement activities, and encouraging peer learning.</p></div></div>
+    <div class="club"><span class="no">3</span><div><h3>CSI CCOEW</h3><p class="role">PR Head</p><p>Lead the PR team, handling communications, recruitment, event promotions, outreach, collaborations, and social media presence.</p></div></div>
+    <div class="club"><span class="no">4</span><div><h3>SWE CCOEW</h3><p class="role">Finance Member</p><p>Contribute to financial planning, budgeting, and finance-related activities for club initiatives.</p></div></div>
+    <div class="club"><span class="no">5</span><div><h3>AVATRI</h3><p class="role">Tech Member · AR/VR club</p><p>Recently recruited as a tech member in the AR/VR club.</p></div></div></section>
+</main>
+<dialog id="dossier" aria-labelledby="dName">
+  <div class="pull"><div class="dcard">
+    <button class="dx" type="button" id="dclose" aria-label="Close file">&times;</button>
+    <svg class="clip" viewBox="0 0 60 120" aria-hidden="true"><path d="M20 20V90a14 14 0 0 0 28 0V30a9 9 0 0 0-18 0V80" fill="none" stroke="#9aa0a8" stroke-width="4" stroke-linecap="round"/></svg>
+    <div class="polar"><div class="ph"><img src="assets/anjali.jpg" alt="Portrait of Anjali Rathore" onerror="this.parentNode.classList.add('nopic');this.remove()"><span>Add your photo as<br>assets/anjali.jpg</span></div></div>
+    <h2 id="dName">Anjali Rathore</h2>
+    <div class="rowt"><b>TITLE:</b> SY CSE STUDENT AT CCOEW, Pune</div>
+    <p class="desc"><b>DESCRIPTION:</b> Hi! I'm Anjali Rathore, a Second-Year Computer Engineering student at CCOEW, Pune.</p>
+    <p class="desc">I love exploring diverse fields, stepping outside my comfort zone, and discovering new opportunities. My interests span technology, AI, AR/VR, digital marketing, finance, event management, and communication.</p>
+    <p class="desc">I have a foundation in C, Java, and SQL, and I'm currently exploring AI agents, Generative AI, and emerging technologies through platforms like Google Labs. Alongside my technical interests, I'm passionate about marketing, branding, social media, and community building. Being a <span class="gsa"><i style="color:#4285F4">G</i><i style="color:#EA4335">o</i><i style="color:#FBBC05">o</i><i style="color:#4285F4">g</i><i style="color:#34A853">l</i><i style="color:#EA4335">e</i> <i style="color:#34A853">Student</i> <i style="color:#4285F4">Ambassador</i></span> has allowed me to explore these interests through organizing activities, promoting initiatives, and connecting people with technology.</p>
+    <p class="desc">Beyond academics, I'm actively involved in student communities like TEDxCCOEW, CSI, SWE, AVATRI, and others, where I get to explore event management, public relations, teamwork, and leadership. I also enjoy learning languages and am continuing my German journey after completing A1 and A2 certifications.</p>
+    <p class="desc">I believe in learning beyond classrooms, embracing new experiences, and connecting different interests to create meaningful opportunities. Always curious, always learning, and always ready to explore something new!</p>
+    <div class="cols">
+      <div><h3>Communities:</h3><ol><li>TEDxCCOEW</li><li>CSI</li><li>SWE</li><li>AVATRI</li></ol></div>
+      <div><h3>Exploring:</h3><ol><li>AI agents &amp; Generative AI</li><li>AR/VR</li><li>German (A1, A2 done)</li></ol></div>
+    </div>
+  </div></div>
+  <div class="sleeve" aria-hidden="true"><span>Confidential</span></div>
+</dialog>
+<dialog id="clubsfile" aria-labelledby="cName">
+  <div class="dcard">
+    <button class="dx" type="button" aria-label="Close file">&times;</button>
+    <h2 id="cName">Clubs at College</h2>
+    <div class="rowt"><b>FILE:</b> CLUBS &amp; COMMUNITIES, CCOEW Pune</div>
+    <div class="club"><span class="no">1</span><div><h3>TEDx CCOEW</h3><p class="role">Event Management Member · since 2025</p><p>Contributing to event planning, coordination, backstage execution, and overall event experiences. Most recent event: Kintsugi.</p></div></div>
+    <div class="club"><span class="no">2</span><div><h3><span class="gsa"><i style="color:#4285F4">G</i><i style="color:#EA4335">o</i><i style="color:#FBBC05">o</i><i style="color:#4285F4">g</i><i style="color:#34A853">l</i><i style="color:#EA4335">e</i> <i style="color:#34A853">Student</i> <i style="color:#4285F4">Ambassador</i></span></h3><p class="role">Campus Ambassador</p><p>Represent Google on campus by building student communities, promoting Google technologies and AI tools, organizing workshops, contests, and engagement activities, and encouraging peer learning.</p></div></div>
+    <div class="club"><span class="no">3</span><div><h3>CSI CCOEW</h3><p class="role">PR Head</p><p>Lead the PR team, handling communications, recruitment, event promotions, outreach, collaborations, and social media presence.</p></div></div>
+    <div class="club"><span class="no">4</span><div><h3>SWE CCOEW</h3><p class="role">Finance Member</p><p>Contribute to financial planning, budgeting, and finance-related activities for club initiatives.</p></div></div>
+    <div class="club"><span class="no">5</span><div><h3>AVATRI</h3><p class="role">Tech Member · AR/VR club</p><p>Recently recruited as a tech member in the AR/VR club.</p></div></div>
+  </div>
+</dialog>
+<dialog id="achfile" class="filedlg" aria-labelledby="aName">
+  <div class="dcard wood wide">
+    <button class="dx" type="button" aria-label="Close files">&times;</button>
+    <div class="tbl">
+      <div class="tabhead"><small>EVIDENCE TABLE</small><h2 id="aName">Achievements</h2><span>Pick a case file to open it.</span></div>
+      
+      <div class="folders">
+      <button type="button" class="folder" data-i="0" style="--rot:-1.5deg"><span class="lab"><i>CASE 01</i><b>ACM-W: Shinigami Stack</b><small>DSA workshop &amp; competition &middot; Nov 2025</small></span></button>
+      <button type="button" class="folder" data-i="1" style="--rot:1.2deg"><span class="lab"><i>CASE 02</i><b>CODIGO 4.1</b><small>Round 3 &middot; Technical Interview &middot; Jan 2026</small></span></button>
+      <button type="button" class="folder" data-i="2" style="--rot:-0.8deg"><span class="lab"><i>CASE 03</i><b>DIPEX 2026</b><small>Volunteer &middot; Idea Presentation Round &middot; Feb 2026</small></span></button>
+      <button type="button" class="folder" data-i="3" style="--rot:1.6deg"><span class="lab"><i>CASE 04</i><b>TEDxCCOEW: Kintsugi</b><small>Event Management Team &middot; Feb 2026</small></span></button>
+      <button type="button" class="folder" data-i="4" style="--rot:-1.2deg"><span class="lab"><i>CASE 05</i><b>MLSC ANVAY 2026</b><small>Web3 &middot; BlockCity Edition &middot; 2026</small></span></button>
+      <button type="button" class="folder" data-i="5" style="--rot:0.9deg"><span class="lab"><i>CASE 06</i><b>NISM Financial Literacy</b><small>eLearning course &middot; Bharat &middot; Jun 2026</small></span></button>
+      <button type="button" class="folder" data-i="6" style="--rot:-1.8deg"><span class="lab"><i>CASE 07</i><b>Azure AI Fundamentals</b><small>Microsoft Certified &middot; Jul 2026</small></span></button>
+      <button type="button" class="folder" data-i="7" style="--rot:1.1deg"><span class="lab"><i>CASE 08</i><b>Google Cloud Gen AI Academy</b><small>APAC 2026 &middot; Cohort 2 &middot; Jul 2026</small></span></button>
+      <button type="button" class="folder" data-i="8" style="--rot:-1.0deg"><span class="lab"><i>CASE 09</i><b>The Failure Files</b><small>Diagnose and Decode &middot; Food &middot; Oct 2026</small></span></button>
+      <button type="button" class="folder" data-i="9" style="--rot:1.4deg"><span class="lab"><i>CASE 10</i><b>Cybersecurity Workshop</b><small>Top 3 Performer &middot; Oct 2026</small></span></button>
+      </div>
+    </div>
+    <div class="detail" hidden>
+      <button type="button" class="back">&larr; Back to the table</button>
+      <article class="case" data-i="0" hidden><a class="cert" href="assets/certs/acmw-shinigami.jpg" target="_blank" rel="noopener" aria-label="Open the full certificate image"><img src="assets/certs/acmw-shinigami.jpg" alt="ACM-W CCEW certificate of participation for the Shinigami Stack workshop and DSA competition" loading="lazy"></a><div class="info"><small>CASE 01 &middot; PARTICIPATION</small><h3>ACM-W: Shinigami Stack</h3><dl><dt>Issued by</dt><dd>ACM-W CCEW Student Chapter, Cummins College of Engineering for Women, Pune</dd><dt>Date</dt><dd>24 &amp; 25 November 2025</dd></dl><p>Certificate of Participation for taking part in &ldquo;Shinigami Stack: Where dead code finds new life&rdquo;, a 2-day workshop and DSA competition organized by the ACM-W CCEW Student Chapter, Department of Computer Engineering.</p></div></article>
+      <article class="case" data-i="1" hidden><a class="cert" href="assets/certs/codigo.jpg" target="_blank" rel="noopener" aria-label="Open the full certificate image"><img src="assets/certs/codigo.jpg" alt="LOOP CCEW certificate of participation for CODIGO 4.1 Round 3" loading="lazy"></a><div class="info"><small>CASE 02 &middot; PARTICIPATION</small><h3>CODIGO 4.1</h3><dl><dt>Issued by</dt><dd>LOOP CCEW</dd><dt>Date</dt><dd>24 January 2026</dd></dl><p>Certificate of Participation recognising skilful participation in the First Year category during CODIGO 4.1, Round 3 (Technical Interview).</p></div></article>
+      <article class="case" data-i="2" hidden><a class="cert" href="assets/certs/dipex.jpg" target="_blank" rel="noopener" aria-label="Open the full certificate image"><img src="assets/certs/dipex.jpg" alt="Certificate of volunteering for the DIPEX-2026 Idea Presentation Round" loading="lazy"></a><div class="info"><small>CASE 03 &middot; VOLUNTEERING</small><h3>DIPEX 2026</h3><dl><dt>Issued by</dt><dd>MKSSS&rsquo;s Cummins College of Engineering for Women, Pune</dd><dt>Date</dt><dd>14 February 2026</dd></dl><p>Certificate of Volunteering for the DIPEX-2026 Idea Presentation Round, Pune Region. Recognises support in the smooth execution of the event: assisting participants, managing logistics and keeping coordination efficient.</p></div></article>
+      <article class="case" data-i="3" hidden><a class="cert" href="assets/certs/tedx-kintsugi.jpg" target="_blank" rel="noopener" aria-label="Open the full certificate image"><img src="assets/certs/tedx-kintsugi.jpg" alt="TEDxCCOEW certificate of recognition for the Kintsugi event management team" loading="lazy"></a><div class="info"><small>CASE 04 &middot; RECOGNITION</small><h3>TEDxCCOEW: Kintsugi</h3><dl><dt>Issued by</dt><dd>TEDxCCOEW</dd><dt>Date</dt><dd>28 February 2026</dd></dl><p>Certificate of Recognition for being a vital force in the Event Management Team at KINTSUGI, organized by TEDxCCOEW.</p></div></article>
+      <article class="case" data-i="4" hidden><a class="cert" href="assets/certs/mlsc-anvay.jpg" target="_blank" rel="noopener" aria-label="Open the full certificate image"><img src="assets/certs/mlsc-anvay.jpg" alt="Microsoft Learn Student Chapter certificate for ANVAY 2026 The BlockCity Edition" loading="lazy"></a><div class="info"><small>CASE 05 &middot; COMPLETION</small><h3>MLSC ANVAY 2026</h3><dl><dt>Issued by</dt><dd>Microsoft Learn Student Chapter (MLSC), CCEW</dd><dt>Date</dt><dd>2026</dd></dl><p>Certificate for successfully completing MLSC&rsquo;s ANVAY 2026: The BlockCity Edition and demonstrating proficiency in Web3 technologies through hands-on application in &ldquo;Around the City&rdquo;.</p></div></article>
+      <article class="case" data-i="5" hidden><a class="cert" href="assets/certs/nism.jpg" target="_blank" rel="noopener" aria-label="Open the full certificate image"><img src="assets/certs/nism.jpg" alt="NISM certificate for the Financial Literacy Course for Bharat" loading="lazy"></a><div class="info"><small>CASE 06 &middot; COMPLETION</small><h3>NISM Financial Literacy</h3><dl><dt>Issued by</dt><dd>National Institute of Securities Markets (NISM), a SEBI initiative</dd><dt>Date</dt><dd>2 June 2026</dd></dl><p>Completion certificate for the self-paced eLearning course &ldquo;Financial Literacy Course for Bharat&rdquo;.</p></div></article>
+      <article class="case" data-i="6" hidden><a class="cert" href="assets/certs/azure-ai.jpg" target="_blank" rel="noopener" aria-label="Open the full certificate image"><img src="assets/certs/azure-ai.jpg" alt="Microsoft Certified Azure AI Fundamentals certificate" loading="lazy"></a><div class="info"><small>CASE 07 &middot; CERTIFICATION</small><h3>Azure AI Fundamentals</h3><dl><dt>Issued by</dt><dd>Microsoft</dd><dt>Date</dt><dd>5 July 2026</dd></dl><p>Passed all requirements for Microsoft Certified: Azure AI Fundamentals. The credential is online verifiable.</p></div></article>
+      <article class="case" data-i="7" hidden><a class="cert" href="assets/certs/google-genai.jpg" target="_blank" rel="noopener" aria-label="Open the full certificate image"><img src="assets/certs/google-genai.jpg" alt="Google Cloud Gen AI Academy APAC 2026 Cohort 2 certificate of completion" loading="lazy"></a><div class="info"><small>CASE 08 &middot; COMPLETION</small><h3>Google Cloud Gen AI Academy</h3><dl><dt>Issued by</dt><dd>Google Cloud, powered by Hack2skill</dd><dt>Date</dt><dd>23 July 2026</dd></dl><p>Certificate of Completion for the Google Cloud Gen AI Academy APAC 2026, Cohort 2. Hands-on learning focused on building real-world AI solutions powered by data, analytics and intelligent systems on Google Cloud.</p></div></article>
+      <article class="case" data-i="8" hidden><a class="cert" href="assets/certs/failure-files.jpg" target="_blank" rel="noopener" aria-label="Open the full certificate image"><img src="assets/certs/failure-files.jpg" alt="Certificate of participation for The Failure Files Diagnose and Decode, team Sherlocked, food domain" loading="lazy"></a><div class="info"><small>CASE 09 &middot; PARTICIPATION</small><h3>The Failure Files</h3><dl><dt>Issued by</dt><dd>Startup and Innovation Cell CCEW (Institution&rsquo;s Innovation Council)</dd><dt>Date</dt><dd>12 &amp; 13 October 2026</dd></dl><p>Certificate of Participation for the event &ldquo;The Failure Files: Diagnose and Decode&rdquo;, recognising enthusiasm, analytical thinking, teamwork and problem-solving skills. Team name: Sherlocked. Domain: Food.</p></div></article>
+      <article class="case" data-i="9" hidden><a class="cert" href="assets/certs/cybersecurity.jpg" target="_blank" rel="noopener" aria-label="Open the full certificate image"><img src="assets/certs/cybersecurity.jpg" alt="Cybersecurity Club certificate of recognition, top 3 performer in the Cybersecurity Awareness Workshop" loading="lazy"></a><div class="info"><small>CASE 10 &middot; RECOGNITION</small><h3>Cybersecurity Workshop</h3><dl><dt>Issued by</dt><dd>The Cybersecurity Club, MKSSS&rsquo;s Cummins College of Engineering for Women, Pune</dd><dt>Date</dt><dd>16 October 2026</dd></dl><p>Certificate of Recognition for outstanding achievement as one of the Top 3 Performers in the Cybersecurity Awareness Workshop on cyber threats, online safety and digital security fundamentals, under the Cybersecurity Awareness Program initiated by Seva Sankalp Abhiyan.</p></div></article>
+    </div>
+  </div>
+</dialog>
+<dialog id="projfile" class="filedlg" aria-labelledby="pName">
+  <div class="dcard wood wide">
+    <button class="dx" type="button" aria-label="Close files">&times;</button>
+    <div class="tbl">
+      <div class="tabhead"><small>EVIDENCE TABLE</small><h2 id="pName">Projects</h2><span>Pick a file to open it.</span></div>
+      <a class="ghbtn" href="https://github.com/anjalirathoreclg" target="_blank" rel="noopener">View my GitHub profile &#8599;</a>
+      <div class="folders">
+      <button type="button" class="folder pf" data-i="0" style="--rot:-1.2deg"><svg class="cv" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cover illustration"><rect width="400" height="240" fill="#1b2233"/><rect x="70" y="52" width="210" height="130" rx="14" fill="#2c3a5a"/><rect x="90" y="40" width="210" height="130" rx="14" fill="#3d4f7a"/><rect x="110" y="28" width="210" height="130" rx="14" fill="#f4ecd8"/><rect x="110" y="28" width="210" height="26" rx="14" fill="#c8312b"/><rect x="110" y="42" width="210" height="12" fill="#c8312b"/><circle cx="190" cy="105" r="30" fill="#1b2233"/><path d="M182 90l26 15-26 15z" fill="#f4ecd8"/><rect x="236" y="92" width="62" height="10" rx="5" fill="#b9ad92"/><rect x="236" y="110" width="44" height="10" rx="5" fill="#b9ad92"/><rect x="126" y="140" width="92" height="8" rx="4" fill="#d6cbb0"/><circle cx="330" cy="62" r="26" fill="#f2c230"/><path d="M330 46c-9 0-14 7-14 15v8l-5 7h38l-5-7v-8c0-8-5-15-14-15zM324 80a6 6 0 0 0 12 0z" fill="#1b2233"/><text x="200" y="215" text-anchor="middle" font-family="Courier New,monospace" font-size="17" fill="#cfd6e6">plans · payments · renewals</text></svg><span class="lab"><i>FILE 01</i><b>OTT Subscription Management System</b><small>Java &middot; Swing &middot; JDBC &middot; MySQL</small></span></button>
+      <button type="button" class="folder pf" data-i="1" style="--rot:1.3deg"><svg class="cv" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cover illustration"><rect width="400" height="240" fill="#10202a"/><circle cx="52" cy="120" r="30" fill="#1f3b4d" stroke="#39ff88" stroke-width="3"/><text x="52" y="125" text-anchor="middle" font-family="Courier New,monospace" font-size="14" fill="#39ff88">REQ</text><path d="M84 120H140" stroke="#39ff88" stroke-width="3"/><path d="M140 120L178 120" stroke="#39ff88" stroke-width="3"/><path d="M178 90l36 30-36 30-36-30z" transform="translate(-4 0)" fill="#39ff88"/><text x="174" y="125" text-anchor="middle" font-family="Courier New,monospace" font-size="12" fill="#10202a" font-weight="bold">LB</text><path d="M212 120C250 120 250 52 292 52M212 120H292M212 120C250 120 250 188 292 188" fill="none" stroke="#39ff88" stroke-width="3"/><g fill="#1f3b4d" stroke="#8fd3ff" stroke-width="2.5"><rect x="292" y="30" width="86" height="44" rx="6"/><rect x="292" y="98" width="86" height="44" rx="6"/><rect x="292" y="166" width="86" height="44" rx="6"/></g><rect x="302" y="58" width="56" height="8" rx="4" fill="#0b141b"/><rect x="302" y="58" width="22" height="8" rx="4" fill="#39ff88"/><rect x="302" y="126" width="56" height="8" rx="4" fill="#0b141b"/><rect x="302" y="126" width="38" height="8" rx="4" fill="#f2c230"/><rect x="302" y="194" width="56" height="8" rx="4" fill="#0b141b"/><rect x="302" y="194" width="30" height="8" rx="4" fill="#39ff88"/><circle cx="302" cy="46" r="4" fill="#39ff88"/><circle cx="302" cy="114" r="4" fill="#39ff88"/><circle cx="302" cy="182" r="4" fill="#39ff88"/></svg><span class="lab"><i>FILE 02</i><b>Load Balancer Simulator</b><small>Java &middot; DSA</small></span></button>
+      <button type="button" class="folder pf" data-i="2" style="--rot:-0.9deg"><svg class="cv" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cover illustration"><rect width="400" height="240" fill="#f6e3c6"/><g fill="#a85a2a"><ellipse cx="150" cy="150" rx="46" ry="38"/><ellipse cx="88" cy="106" rx="17" ry="23" transform="rotate(-20 88 106)"/><ellipse cx="128" cy="80" rx="17" ry="24" transform="rotate(-6 128 80)"/><ellipse cx="174" cy="80" rx="17" ry="24" transform="rotate(8 174 80)"/><ellipse cx="212" cy="106" rx="17" ry="23" transform="rotate(22 212 106)"/></g><rect x="252" y="82" width="104" height="92" rx="10" fill="#fff8ea" stroke="#a85a2a" stroke-width="4"/><path d="M276 82v-14a28 28 0 0 1 56 0v14" fill="none" stroke="#a85a2a" stroke-width="5"/><text x="304" y="140" text-anchor="middle" font-family="Archivo,Impact,sans-serif" font-weight="800" font-size="26" fill="#a85a2a">PAWSH</text><text x="200" y="218" text-anchor="middle" font-family="Courier New,monospace" font-size="16" fill="#7a4a24">dogs · cats · shop by breed</text></svg><span class="lab"><i>FILE 03</i><b>PAWSH: Pet E-commerce Website</b><small>React &middot; Vite &middot; Netlify</small></span></button>
+      <button type="button" class="folder pf" data-i="3" style="--rot:1.1deg"><svg class="cv" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cover illustration"><rect width="400" height="240" fill="#201b2e"/><rect x="18" y="40" width="112" height="150" rx="10" fill="#2d2742"/><polyline points="30,160 55,132 78,144 102,96 120,78" fill="none" stroke="#39ff88" stroke-width="4" stroke-linejoin="round"/><path d="M30 172H120" stroke="#6b6590" stroke-width="2"/><text x="74" y="62" text-anchor="middle" font-family="Courier New,monospace" font-size="12" fill="#cfc9e8">PREDICT</text><rect x="144" y="40" width="112" height="150" rx="10" fill="#2d2742"/><rect x="164" y="98" width="72" height="50" rx="5" fill="#f4ecd8"/><path d="M164 98l36 28 36-28" fill="none" stroke="#c8312b" stroke-width="3"/><path d="M200 66l22 8v14c0 12-9 20-22 24-13-4-22-12-22-24V74z" transform="translate(0 -6)" fill="#f2c230"/><text x="200" y="176" text-anchor="middle" font-family="Courier New,monospace" font-size="12" fill="#cfc9e8">PHISH?</text><rect x="270" y="40" width="112" height="150" rx="10" fill="#2d2742"/><circle cx="326" cy="108" r="34" fill="#4285F4"/><path d="M326 108V74a34 34 0 0 1 34 34z" fill="#f2c230"/><path d="M326 108l-24 24a34 34 0 0 1-10-24z" fill="#34A853"/><text x="326" y="62" text-anchor="middle" font-family="Courier New,monospace" font-size="12" fill="#cfc9e8">BUDGET</text><text x="200" y="222" text-anchor="middle" font-family="Courier New,monospace" font-size="16" fill="#cfc9e8">python experiments</text></svg><span class="lab"><i>FILE 04</i><b>Others</b><small>Python &middot; ML &middot; Security</small></span></button>
+      </div>
+    </div>
+    <div class="detail" hidden>
+      <button type="button" class="back">&larr; Back to the table</button>
+      <article class="case" data-i="0" hidden><div class="cert"><svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cover illustration"><rect width="400" height="240" fill="#1b2233"/><rect x="70" y="52" width="210" height="130" rx="14" fill="#2c3a5a"/><rect x="90" y="40" width="210" height="130" rx="14" fill="#3d4f7a"/><rect x="110" y="28" width="210" height="130" rx="14" fill="#f4ecd8"/><rect x="110" y="28" width="210" height="26" rx="14" fill="#c8312b"/><rect x="110" y="42" width="210" height="12" fill="#c8312b"/><circle cx="190" cy="105" r="30" fill="#1b2233"/><path d="M182 90l26 15-26 15z" fill="#f4ecd8"/><rect x="236" y="92" width="62" height="10" rx="5" fill="#b9ad92"/><rect x="236" y="110" width="44" height="10" rx="5" fill="#b9ad92"/><rect x="126" y="140" width="92" height="8" rx="4" fill="#d6cbb0"/><circle cx="330" cy="62" r="26" fill="#f2c230"/><path d="M330 46c-9 0-14 7-14 15v8l-5 7h38l-5-7v-8c0-8-5-15-14-15zM324 80a6 6 0 0 0 12 0z" fill="#1b2233"/><text x="200" y="215" text-anchor="middle" font-family="Courier New,monospace" font-size="17" fill="#cfd6e6">plans · payments · renewals</text></svg></div><div class="info"><small>FILE 01 &middot; PROJECT</small><h3>OTT Subscription Management System</h3><dl><dt>Tech used</dt><dd>Java, Java Swing, JDBC, MySQL</dd><dt>Source code</dt><dd><a href="https://github.com/anjalirathoreclg/ott-subscription-management" target="_blank" rel="noopener">github.com/anjalirathoreclg/ott-subscription-management</a></dd></dl><p>Developed a desktop-based application to manage users, OTT service plans, subscriptions, payments, budgets and renewal alerts. Integrated Java Swing for the graphical interface and JDBC for database connectivity with MySQL. Implemented database operations using SQL queries, stored procedures, functions and triggers to maintain data consistency and simplify subscription management.</p><p style="margin-top:.8rem"><a class="btn" href="https://github.com/anjalirathoreclg/ott-subscription-management" target="_blank" rel="noopener">View code on GitHub &#8599;</a></p></div></article>
+      <article class="case" data-i="1" hidden><div class="cert"><svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cover illustration"><rect width="400" height="240" fill="#10202a"/><circle cx="52" cy="120" r="30" fill="#1f3b4d" stroke="#39ff88" stroke-width="3"/><text x="52" y="125" text-anchor="middle" font-family="Courier New,monospace" font-size="14" fill="#39ff88">REQ</text><path d="M84 120H140" stroke="#39ff88" stroke-width="3"/><path d="M140 120L178 120" stroke="#39ff88" stroke-width="3"/><path d="M178 90l36 30-36 30-36-30z" transform="translate(-4 0)" fill="#39ff88"/><text x="174" y="125" text-anchor="middle" font-family="Courier New,monospace" font-size="12" fill="#10202a" font-weight="bold">LB</text><path d="M212 120C250 120 250 52 292 52M212 120H292M212 120C250 120 250 188 292 188" fill="none" stroke="#39ff88" stroke-width="3"/><g fill="#1f3b4d" stroke="#8fd3ff" stroke-width="2.5"><rect x="292" y="30" width="86" height="44" rx="6"/><rect x="292" y="98" width="86" height="44" rx="6"/><rect x="292" y="166" width="86" height="44" rx="6"/></g><rect x="302" y="58" width="56" height="8" rx="4" fill="#0b141b"/><rect x="302" y="58" width="22" height="8" rx="4" fill="#39ff88"/><rect x="302" y="126" width="56" height="8" rx="4" fill="#0b141b"/><rect x="302" y="126" width="38" height="8" rx="4" fill="#f2c230"/><rect x="302" y="194" width="56" height="8" rx="4" fill="#0b141b"/><rect x="302" y="194" width="30" height="8" rx="4" fill="#39ff88"/><circle cx="302" cy="46" r="4" fill="#39ff88"/><circle cx="302" cy="114" r="4" fill="#39ff88"/><circle cx="302" cy="182" r="4" fill="#39ff88"/></svg></div><div class="info"><small>FILE 02 &middot; PROJECT</small><h3>Load Balancer Simulator</h3><dl><dt>Tech used</dt><dd>Java, Data Structures, Algorithms (DSA)</dd><dt>Source code</dt><dd><a href="https://github.com/anjalirathoreclg/java-load-balancer-simulator" target="_blank" rel="noopener">github.com/anjalirathoreclg/java-load-balancer-simulator</a></dd></dl><p>Developed a Java-based load balancer simulator to demonstrate efficient distribution of incoming requests across multiple servers. Implemented Round Robin and Least Load scheduling algorithms, along with server failure and recovery, request queuing and autoscaling. Used custom data structures including dynamic arrays, linked queues, stacks, hash tables and binary heaps.</p><p style="margin-top:.8rem"><a class="btn" href="https://github.com/anjalirathoreclg/java-load-balancer-simulator" target="_blank" rel="noopener">View code on GitHub &#8599;</a></p></div></article>
+      <article class="case" data-i="2" hidden><a class="cert" href="https://flourishing-beignet-592533.netlify.app/" target="_blank" rel="noopener" aria-label="Open the PAWSH website"><svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cover illustration"><rect width="400" height="240" fill="#f6e3c6"/><g fill="#a85a2a"><ellipse cx="150" cy="150" rx="46" ry="38"/><ellipse cx="88" cy="106" rx="17" ry="23" transform="rotate(-20 88 106)"/><ellipse cx="128" cy="80" rx="17" ry="24" transform="rotate(-6 128 80)"/><ellipse cx="174" cy="80" rx="17" ry="24" transform="rotate(8 174 80)"/><ellipse cx="212" cy="106" rx="17" ry="23" transform="rotate(22 212 106)"/></g><rect x="252" y="82" width="104" height="92" rx="10" fill="#fff8ea" stroke="#a85a2a" stroke-width="4"/><path d="M276 82v-14a28 28 0 0 1 56 0v14" fill="none" stroke="#a85a2a" stroke-width="5"/><text x="304" y="140" text-anchor="middle" font-family="Archivo,Impact,sans-serif" font-weight="800" font-size="26" fill="#a85a2a">PAWSH</text><text x="200" y="218" text-anchor="middle" font-family="Courier New,monospace" font-size="16" fill="#7a4a24">dogs · cats · shop by breed</text></svg></a><div class="info"><small>FILE 03 &middot; PROJECT</small><h3>PAWSH: Pet E-commerce Website</h3><dl><dt>Tech used</dt><dd>React.js, JavaScript, HTML, CSS, Vite, Netlify, Google Analytics</dd><dt>Live site</dt><dd><a href="https://flourishing-beignet-592533.netlify.app/" target="_blank" rel="noopener">flourishing-beignet-592533.netlify.app</a></dd></dl><p>Designed and developed a pet e-commerce website catering to dog and cat owners, featuring breed-specific product browsing and multiple shopping categories. Built an interactive, responsive shopping experience using React and JavaScript. Deployed the website through Netlify and integrated Google Analytics to monitor website traffic and understand user engagement.</p><p style="margin-top:.8rem"><a class="btn" href="https://flourishing-beignet-592533.netlify.app/" target="_blank" rel="noopener">Visit the live site &#8599;</a></p></div></article>
+      <article class="case" data-i="3" hidden><div class="cert"><svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cover illustration"><rect width="400" height="240" fill="#201b2e"/><rect x="18" y="40" width="112" height="150" rx="10" fill="#2d2742"/><polyline points="30,160 55,132 78,144 102,96 120,78" fill="none" stroke="#39ff88" stroke-width="4" stroke-linejoin="round"/><path d="M30 172H120" stroke="#6b6590" stroke-width="2"/><text x="74" y="62" text-anchor="middle" font-family="Courier New,monospace" font-size="12" fill="#cfc9e8">PREDICT</text><rect x="144" y="40" width="112" height="150" rx="10" fill="#2d2742"/><rect x="164" y="98" width="72" height="50" rx="5" fill="#f4ecd8"/><path d="M164 98l36 28 36-28" fill="none" stroke="#c8312b" stroke-width="3"/><path d="M200 66l22 8v14c0 12-9 20-22 24-13-4-22-12-22-24V74z" transform="translate(0 -6)" fill="#f2c230"/><text x="200" y="176" text-anchor="middle" font-family="Courier New,monospace" font-size="12" fill="#cfc9e8">PHISH?</text><rect x="270" y="40" width="112" height="150" rx="10" fill="#2d2742"/><circle cx="326" cy="108" r="34" fill="#4285F4"/><path d="M326 108V74a34 34 0 0 1 34 34z" fill="#f2c230"/><path d="M326 108l-24 24a34 34 0 0 1-10-24z" fill="#34A853"/><text x="326" y="62" text-anchor="middle" font-family="Courier New,monospace" font-size="12" fill="#cfc9e8">BUDGET</text><text x="200" y="222" text-anchor="middle" font-family="Courier New,monospace" font-size="16" fill="#cfc9e8">python experiments</text></svg></div><div class="info"><small>FILE 04 &middot; PROJECT</small><h3>Others</h3><dl><dt>Language</dt><dd>Python experiments</dd></dl><ol type="a"><li>Car Sale Prediction Model for Hyundai during the Coronavirus pandemic (Python)</li><li>Phishing URL Detector connected to Gmail</li><li>Budget Manager (Python)</li></ol></div></article>
+    </div>
+  </div>
+</dialog>
+<dialog id="skillfile" class="skdlg" aria-labelledby="sName">
+  <div class="dcard mid">
+    <button class="dx" type="button" aria-label="Close file">&times;</button>
+    <small class="fileno">FILE 02 &middot; POWER SCAN</small>
+    <h2 id="sName">Superpowers</h2>
+    <div class="rowt"><b>LEGEND:</b> the pin marks my level. A level written with a dash (like Intermediate&ndash;Advanced) sits on the line between the two zones.</div>
+    <div class="sk zones" aria-hidden="true"><div></div><div class="zn"><span>Beginner</span><span>Intermediate</span><span>Advanced</span></div></div><h3 class="skg">Code</h3><div class="sk"><div><b>C Programming</b><span class="lv">Intermediate–Advanced</span></div><div class="gauge" role="img" aria-label="C Programming: Intermediate to Advanced" style="--lvl:66.66%"><i class="fill"></i><i class="pin2"></i></div></div><div class="sk"><div><b>Java</b><span class="lv">Beginner–Intermediate</span></div><div class="gauge" role="img" aria-label="Java: Beginner–Intermediate" style="--lvl:33%"><i class="fill"></i><i class="pin2"></i></div></div><div class="sk"><div><b>SQL / MySQL</b><span class="lv">Beginner–Intermediate</span></div><div class="gauge" role="img" aria-label="SQL / MySQL: Beginner–Intermediate" style="--lvl:33%"><i class="fill"></i><i class="pin2"></i></div></div><h3 class="skg">AI</h3><div class="sk"><div><b>AI Agents &amp; Generative AI</b><span class="lv">Intermediate</span></div><div class="gauge" role="img" aria-label="AI Agents and Generative AI: Intermediate" style="--lvl:50%"><i class="fill"></i><i class="pin2"></i></div></div><h3 class="skg">Design</h3><div class="sk"><div><b>AutoCAD</b><span class="lv">Beginner–Intermediate</span></div><div class="gauge" role="img" aria-label="AutoCAD: Beginner–Intermediate" style="--lvl:33%"><i class="fill"></i><i class="pin2"></i></div></div><div class="sk"><div><b>Figma</b><span class="lv">Beginner–Intermediate</span></div><div class="gauge" role="img" aria-label="Figma: Beginner–Intermediate" style="--lvl:33%"><i class="fill"></i><i class="pin2"></i></div></div><div class="sk"><div><b>Canva</b><span class="lv">Intermediate–Advanced</span></div><div class="gauge" role="img" aria-label="Canva: Intermediate to Advanced" style="--lvl:66.66%"><i class="fill"></i><i class="pin2"></i></div></div><h3 class="skg">Marketing</h3><div class="sk"><div><b>SEO Optimization</b><span class="lv">Beginner</span></div><div class="gauge" role="img" aria-label="SEO Optimization: Beginner" style="--lvl:17%"><i class="fill"></i><i class="pin2"></i></div></div><h3 class="skg">Language</h3><div class="sk"><div><b>German</b><span class="lv">A2 certified &middot; learning B1</span></div><div class="cefr" role="img" aria-label="German: A2 certified, currently learning B1"><span class="done">A1</span><span class="done">A2</span><span class="now">B1</span><span>B2</span><span>C1</span><span>C2</span></div></div>
+  </div>
+</dialog>
+<dialog id="resumefile" aria-labelledby="rName">
+  <div class="dcard resume">
+    <button class="dx" type="button" aria-label="Close resume">&times;</button>
+    <div class="rbar"><a class="rbtn" href="assets/Anjali_Rathore_Resume.pdf" download="Anjali_Rathore_Resume.pdf">&#8681; Download PDF</a><a class="rbtn alt" href="assets/Anjali_Rathore_Resume.pdf" target="_blank" rel="noopener">Open PDF in new tab</a></div>
+    <h2 id="rName">Anjali Rathore</h2>
+    <p class="rsub">B.Tech Computer Engineering (Second Year) · Cummins College of Engineering for Women (CCOEW), Pune</p>
+    <p class="rcon"><b>Email:</b> <a href="mailto:anjali.rathore@cumminscollege.in">anjali.rathore@cumminscollege.in</a> · <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/anjali-rathore-ccoew29/" target="_blank" rel="noopener">linkedin.com/in/anjali-rathore-ccoew29</a> · <b>GitHub:</b> <a href="https://github.com/anjalirathoreclg" target="_blank" rel="noopener">github.com/anjalirathoreclg</a></p>
+    <h3>Summary</h3><p>Second Year B.Tech Computer Engineering student with a strong interest in technology, innovation and marketing. Seeking an opportunity that shall help me grow both technically and creatively.</p>
+    <h3>Education</h3><div class="redu"><div><b>Cummins College of Engineering for Women, Pune</b><span>B.Tech Computer Engineering · CGPA 8.34</span></div><i>2025 – 2029</i></div><div class="redu"><div><b>D.A.V. Public School, Pune</b><span>PCM (Science) · Class XII: 84.2% · Class X: 95.4%</span></div><i>2010 – 2025</i></div>
+    <h3>Skills</h3><dl><dt>Programming &amp; data</dt><dd>C (Intermediate–Advanced) · Java (Beginner–Intermediate) · SQL / MySQL (Beginner–Intermediate) · JDBC · Data Structures &amp; Algorithms</dd><dt>Web</dt><dd>React.js · JavaScript · HTML · CSS · Vite · Netlify · Google Analytics</dd><dt>AI</dt><dd>AI Agents &amp; Generative AI (Intermediate) · Microsoft Azure AI Fundamentals certified</dd><dt>Design</dt><dd>Canva (Intermediate–Advanced) · Figma (Beginner–Intermediate) · AutoCAD (Beginner–Intermediate)</dd><dt>Marketing</dt><dd>SEO Optimization (Beginner) · branding · social media · community building</dd><dt>Language</dt><dd>German: A1 and A2 certified, currently learning B1</dd></dl>
+    <h3>Projects</h3><div class="rp"><b>OTT Subscription Management System</b> <i>| Java, Java Swing, JDBC, MySQL</i> <a href="https://github.com/anjalirathoreclg/ott-subscription-management" target="_blank" rel="noopener">github.com/anjalirathoreclg/ott-subscription-management</a><p>Desktop app to manage users, OTT plans, subscriptions, payments, budgets and renewal alerts. Used SQL queries, stored procedures, functions and triggers to keep data consistent.</p></div><div class="rp"><b>Load Balancer Simulator</b> <i>| Java, Data Structures, Algorithms</i> <a href="https://github.com/anjalirathoreclg/java-load-balancer-simulator" target="_blank" rel="noopener">github.com/anjalirathoreclg/java-load-balancer-simulator</a><p>Simulates request distribution across servers with Round Robin and Least Load scheduling, server failure and recovery, request queuing and autoscaling. Built on custom dynamic arrays, linked queues, stacks, hash tables and binary heaps.</p></div><div class="rp"><b>PAWSH: Pet E-commerce Website</b> <i>| React.js, JavaScript, HTML, CSS, Vite, Netlify, Google Analytics</i> <a href="https://flourishing-beignet-592533.netlify.app/" target="_blank" rel="noopener">Live site</a><p>Responsive shopping site for dog and cat owners with breed-specific browsing and multiple categories. Deployed on Netlify with Google Analytics to track traffic and engagement.</p></div><p class="rp">Other projects: Car sale prediction model for Hyundai during the Coronavirus pandemic (Python) · Phishing URL detector connected to Gmail · Budget manager (Python) · Priority-based load shedding digital circuit (gates, decoder, mux).</p>
+    <h3>Leadership &amp; experience</h3><p><b>PR Head</b>, CSI CCOEW. Lead the PR team across communications, recruitment, event promotions, outreach, collaborations and social media; design announcement emails and Instagram carousels for club events.</p><p><b>Event Management Member</b>, TEDxCCOEW (since 2025). Event planning, coordination and backstage execution; part of the Event Management Team for KINTSUGI (Feb 2026).</p><p><b>Google Student Ambassador</b>, Google. Represent Google on campus: build student communities, promote Google technologies and AI tools, and run workshops, contests and engagement activities.</p><p><b>Finance Member</b>, SWE CCOEW. Contribute to financial planning, budgeting and finance activities for club initiatives.</p><p><b>Tech Member, AR/VR club</b>, AVATRI. Recently recruited to the club's tech team.</p>
+    <h3>Certifications &amp; achievements</h3><ul class="rach"><li>Microsoft Certified: Azure AI Fundamentals <span>(Jul 2026)</span></li><li>Google Cloud Gen AI Academy APAC 2026, Cohort 2 (Hack2skill) <span>(Jul 2026)</span></li><li>NISM: Financial Literacy Course for Bharat <span>(Jun 2026)</span></li><li>The Failure Files (team Sherlocked): top 8 of 45+ teams <span>(Oct 2026)</span></li><li>Cybersecurity Awareness Workshop: Top 3 Performer <span>(Oct 2026)</span></li><li>ACM-W CCEW Shinigami Stack: DSA workshop and competition <span>(Nov 2025)</span></li><li>CODIGO 4.1: Round 3 technical interview, First Year category <span>(Jan 2026)</span></li><li>DIPEX-2026: volunteer, Idea Presentation Round (Pune) <span>(Feb 2026)</span></li><li>MLSC ANVAY 2026: BlockCity Edition (Web3) <span>(2026)</span></li></ul>
+    <h3>Interests</h3><p>Technology, AI, AR/VR, digital marketing, finance, event management, communication.</p>
+  </div>
+</dialog>
+<footer>Contact: <a href="mailto:anjali.rathore@cumminscollege.in">anjali.rathore@cumminscollege.in</a> · <a href="https://www.linkedin.com/in/anjali-rathore-ccoew29/" target="_blank" rel="noopener">LinkedIn</a> · Hosted on AWS Amplify</footer>
+
+<script>
+(function(){
+  /* ---------- board clutter (seeded, same every load) ---------- */
+  var s=7;function rnd(){s=(s*16807)%2147483647;return s/2147483647}
+  var notes=["git commit -m 'fix'","Round Robin or Least Load?","JDBC connected!!","NullPointerException... again","Top 8 of 45 teams","4 loads, 1 overload","TODO: sleep","Who ate the semicolon?","Deployed on Amplify","Min Heap = happy","Works on my machine","Coffee level: critical"];
+  var caps=["Suspect's desk","The server room","Chip found","Cloud nine","Bug #404","Secure?"];
+  var icons=[
+   '<rect x="18" y="20" width="64" height="38" rx="3" fill="none" stroke="#39ff88" stroke-width="3"/><rect x="8" y="62" width="84" height="6" rx="3" fill="#39ff88"/>',
+   '<rect x="30" y="22" width="40" height="40" fill="none" stroke="#39ff88" stroke-width="3"/><path d="M38 14v8M50 14v8M62 14v8M38 62v8M50 62v8M62 62v8M22 34h8M22 50h8M70 34h8M70 50h8" stroke="#39ff88" stroke-width="3"/>',
+   '<rect x="24" y="14" width="52" height="16" fill="none" stroke="#39ff88" stroke-width="3"/><rect x="24" y="36" width="52" height="16" fill="none" stroke="#39ff88" stroke-width="3"/><rect x="24" y="58" width="52" height="16" fill="none" stroke="#39ff88" stroke-width="3"/>',
+   '<path d="M30 60h42a14 14 0 0 0 2-28 20 20 0 0 0-38-4 16 16 0 0 0-6 32z" fill="none" stroke="#39ff88" stroke-width="3"/>',
+   '<ellipse cx="50" cy="44" rx="16" ry="20" fill="none" stroke="#39ff88" stroke-width="3"/><path d="M34 34l-12-8M34 46H20M34 58l-12 8M66 34l12-8M66 46h14M66 58l12 8" stroke="#39ff88" stroke-width="3"/>',
+   '<path d="M50 14l28 10v22c0 18-12 30-28 36C34 76 22 64 22 46V24z" fill="none" stroke="#39ff88" stroke-width="3"/><path d="M38 46l9 9 16-18" fill="none" stroke="#39ff88" stroke-width="3"/>'];
+  var pcs=["#2e8b57","#2f6fd6","#c8312b","#e0a000"],cols=["#ffe27a","#ffb7c8","#b8e0ff","#c9f0b2"],h="",pts=[],id=0,C=8,R=5;
+  for(var r=0;r<R;r++)for(var c=0;c<C;c++){
+    var x=(c+.15+rnd()*.7)/C*90+3,y=(r+.1+rnd()*.7)/R*86+4,t=Math.floor(rnd()*4),rot=(rnd()*16-8).toFixed(1),pc=pcs[Math.floor(rnd()*4)],tp=rnd()<.3?' tp':'';
+    pts.push([x,y]);var st='left:'+x.toFixed(1)+'%;top:'+y.toFixed(1)+'%;--r:'+rot+'deg;--pc:'+pc;
+    if(t===0)h+='<div class="bit sticky'+tp+'" style="'+st+';background-color:'+cols[Math.floor(rnd()*4)]+'"><i class="p"></i>'+notes[Math.floor(rnd()*notes.length)]+'</div>';
+    else if(t===1)h+='<div class="bit polaroid'+tp+'" style="'+st+'"><i class="p"></i><svg viewBox="0 0 100 88">'+icons[Math.floor(rnd()*icons.length)]+'</svg>'+caps[Math.floor(rnd()*caps.length)]+'</div>';
+    else if(t===2)h+='<div class="bit paper'+tp+'" style="'+st+'"><i class="p"></i>for(i&lt;n;i++){\n  assign(s[i]);\n  heap.fix();\n}\n// clue '+(++id)+'</div>';
+    else h+='<div class="bit num" style="'+st+'"><i class="p"></i>'+(10+Math.floor(rnd()*40))+'</div>';
+  }
+  document.getElementById('clutter').innerHTML=h;
+  var lines="";
+  for(var i=0;i<18;i++){
+    var a=pts[Math.floor(rnd()*pts.length)],b=pts[Math.floor(rnd()*pts.length)];
+    var x1=a[0]+3,y1=a[1]+1,x2=b[0]+3,y2=b[1]+1,d='M'+x1+' '+y1+' Q'+((x1+x2)/2)+' '+((y1+y2)/2+2.2)+' '+x2+' '+y2;
+    lines+='<path class="sh" transform="translate(.4 .8)" d="'+d+'"/><path class="th" d="'+d+'"/>';
+  }
+  document.getElementById('rand').innerHTML=lines;
+
+  /* ---------- main strings: four clue pins to the face (with sag and shadow) ---------- */
+  var strings=document.getElementById('strings'),hero=document.getElementById('top');
+  var eyeL=document.getElementById('eyeL'),eyeR=document.getElementById('eyeR'),pL=document.getElementById('pupL'),pR=document.getElementById('pupR');
+  function eyeMid(){var a=eyeL.getBoundingClientRect(),b=eyeR.getBoundingClientRect();
+    return{x:(a.left+a.width/2+b.left+b.width/2)/2,y:(a.top+a.height/2+b.top+b.height/2)/2}}
+  function draw(){var hr=hero.getBoundingClientRect(),m=eyeMid(),o='',mx=m.x-hr.left,my=m.y-hr.top;
+    ['p1','p2','p3','p4','p5'].forEach(function(id){var q=document.getElementById(id).getBoundingClientRect();
+      var x=q.left+q.width/2-hr.left,y=q.top+2-hr.top,d='M'+x+' '+y+' Q'+((x+mx)/2)+' '+((y+my)/2+22)+' '+mx+' '+my;
+      o+='<path class="sh" transform="translate(3 6)" d="'+d+'"/><path class="th" d="'+d+'"/>'});
+    strings.innerHTML=o}
+
+  /* ---------- eye tracking: unit vector, time-based ease, stops when settled ---------- */
+  var TRAVEL=12,DEAD=6,tx=0,ty=0,cx=0,cy=0,raf=0,last=0,idleRaf=0;
+  var mqC=matchMedia('(pointer: coarse)'),mqR=matchMedia('(prefers-reduced-motion: reduce)');
+  function setGaze(x,y){var t='translate('+(x*TRAVEL)+'px,'+(y*TRAVEL)+'px)';pL.style.transform=t;pR.style.transform=t}
+  function loop(now){var dt=Math.min(64,now-(last||now));last=now;var k=1-Math.exp(-dt/95);
+    cx+=(tx-cx)*k;cy+=(ty-cy)*k;setGaze(cx,cy);
+    if(Math.abs(tx-cx)>.0005||Math.abs(ty-cy)>.0005)raf=requestAnimationFrame(loop);else{raf=0;last=0}}
+  function onMove(e){var m=eyeMid(),dx=e.clientX-m.x,dy=e.clientY-m.y,d=Math.hypot(dx,dy);
+    if(d<=DEAD)return;tx=dx/d;ty=dy/d;if(!raf)raf=requestAnimationFrame(loop)}
+  function idle(now){var a=now/11000*Math.PI*2;setGaze(Math.cos(a)*.5,Math.sin(a)*.5);idleRaf=requestAnimationFrame(idle)}
+  function apply(){removeEventListener('pointermove',onMove);cancelAnimationFrame(idleRaf);idleRaf=0;cancelAnimationFrame(raf);raf=0;last=0;
+    if(mqR.matches){tx=ty=cx=cy=0;setGaze(0,0);return}
+    if(mqC.matches){idleRaf=requestAnimationFrame(idle);return}
+    addEventListener('pointermove',onMove,{passive:true})}
+  mqC.addEventListener('change',apply);mqR.addEventListener('change',apply);
+  addEventListener('resize',draw);addEventListener('load',draw);
+  apply();draw();
+  /* ---------- clue cards open their files ---------- */
+  var map={'#about':'dossier','#clubs':'clubsfile','#achievements':'achfile','#projects':'projfile','#skills':'skillfile'};
+  Object.keys(map).forEach(function(h){var d=document.getElementById(map[h]);
+    document.querySelectorAll('a[href="'+h+'"]').forEach(function(a){
+      a.addEventListener('click',function(e){if(d.showModal){e.preventDefault();d.showModal();
+        if(d.id==='dossier'){d.classList.remove('pulling');void d.offsetWidth;d.classList.add('pulling')}
+        if(d.classList.contains('skdlg')){d.classList.remove('go');requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('go')})})}}})})});
+  document.getElementById('dossier').addEventListener('close',function(){this.classList.remove('pulling')});
+  var sk=document.getElementById('skillfile');sk.addEventListener('close',function(){sk.classList.remove('go')});
+  document.querySelectorAll('dialog').forEach(function(d){
+    d.querySelector('.dx').addEventListener('click',function(){d.close()});
+    d.addEventListener('click',function(e){if(e.target===d)d.close()})});
+  /* ---------- folder tables (achievements, projects): one file open at a time ---------- */
+  document.querySelectorAll('.filedlg').forEach(function(d){
+    var tbl=d.querySelector('.tbl'),det=d.querySelector('.detail'),card=d.querySelector('.dcard'),back=det.querySelector('.back'),last=null;
+    function showTable(focus){det.hidden=true;tbl.hidden=false;d.querySelectorAll('.case').forEach(function(c){c.hidden=true});card.scrollTop=0;if(focus&&last)last.focus()}
+    d.querySelectorAll('.folder').forEach(function(f){f.addEventListener('click',function(){
+      last=f;tbl.hidden=true;det.hidden=false;
+      d.querySelectorAll('.case').forEach(function(c){c.hidden=c.dataset.i!==f.dataset.i});
+      card.scrollTop=0;back.focus()})});
+    back.addEventListener('click',function(){showTable(true)});
+    d.addEventListener('close',function(){showTable(false)})});
+  document.getElementById('resbtn').addEventListener('click',function(){var d=document.getElementById('resumefile');if(d.showModal)d.showModal();else window.open('assets/Anjali_Rathore_Resume.pdf')});
+})();
+</script>
+</body>
+</html>
